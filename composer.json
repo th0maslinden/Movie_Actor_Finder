@@ -1,0 +1,22 @@
+{
+    "name": "dehay0030_lind0013/sae2-01",
+    "description": "Développement d'une application Web de consultation et modification d'une base de données MySQL.",
+    "type": "project",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "Super\\Sae201\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lind0013",
+            "email": "thomas.linden1@etudiant.univ-reims.fr"
+        },
+        {
+            "name": "dehay0030",
+            "email": "roman.dehay@etudiant.univ-reims.fr"
+        }
+    ],    
+    "require": {}
+}
