@@ -1,6 +1,6 @@
 <?php
 
-namespace Super\Sae201\Entity;
+namespace Entity;
 
 use Cassandra\Date;
 
