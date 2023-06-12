@@ -18,5 +18,13 @@
             "email": "roman.dehay@etudiant.univ-reims.fr"
         }
     ],    
-    "require": {}
-}
+    "require": {
+        "ext-pdo": "*"
+    },
+    "scripts": {
+        "start:linux": "bin/run-server.sh",
+        "start:windows": "bin/run-serveur.bat",
+        "test-start:linux": "bin/test-run-server.sh",
+        "test-start:windows": "bin/test-run-serveur.bat"
+        }
+    }
