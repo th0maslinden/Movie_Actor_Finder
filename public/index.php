@@ -12,8 +12,8 @@ $html->appendContent("<header><h1>Films</h1></header><div class='content'><ul cl
 $Movies = MovieCollection::findAll();
 $Images = ImageCollection::findAll();
 
-foreach ($Movies as $movie) {
-    $html->appendContent("<a href=\"test.php?MovieId={$movie->getId()}\"><li><div class='txt'>{$movie->getTitle()}</div>");
+foreach ($Movies as $index => $movie) {
+    $html->appendContent("<a href=\"DescriptionMovie.php?MovieId={$movie->getId()}\"><li><div class='txt'>{$movie->getTitle()}</div>");
     foreach ($Images as $image) {
         if ($movie->getPosterId() == $image->getId()) {
             $html->appendContent("<img src='data:image/jpeg;base64," . base64_encode($image->getJpeg()) . "' alt='Image'></li>");
