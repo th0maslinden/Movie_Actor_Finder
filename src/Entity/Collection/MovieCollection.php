@@ -6,13 +6,13 @@ namespace Entity\Collection;
 
 use Database\MyPdo;
 use PDO;
-use Entity\movie;
+use Entity\Movie;
 
 class MovieCollection
 {
     /**
      *la méthode findAll renvoit un tableau des film
-     * @return movie[] liste film
+     * @return Movie[] liste film
      */
 
     public static function findAll():array
@@ -28,7 +28,7 @@ SQL
 
         );
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, movie::class);
+        return $stmt->fetchAll(PDO::FETCH_CLASS, Movie::class);
     }
 
 

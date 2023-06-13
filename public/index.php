@@ -2,6 +2,15 @@
 
 declare(strict_types=1);
 
-require_once '../vendor/autoload.php';
+use Entity\Collection\MovieCollection;
+use Html\WebPage;
 
-echo 'Hello Music!';
+$wp=new WebPage("test");
+
+$Movies = MovieCollection::findAll();
+
+foreach ($Movies as $index => $movie){
+    $wp->appendContent("<li>{$movie->getTitle()}</li>");
+}
+
+echo $wp->toHTML();

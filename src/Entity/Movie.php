@@ -4,7 +4,7 @@ namespace Entity;
 
 use Cassandra\Date;
 
-class movie
+class Movie
 {
     private int $id;
     private int $posterId;
