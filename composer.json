@@ -19,8 +19,7 @@
         }
     ],    
     "require": {
-        "ext-pdo": "*",
-      "ext-cassandra": "*"
+        "ext-pdo": "*"
     },
     "scripts": {
         "start:linux": "bin/run-server.sh",
