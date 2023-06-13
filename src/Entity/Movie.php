@@ -2,6 +2,9 @@
 
 namespace Entity;
 
+use Database\MyPdo;
+use PDO;
+
 class Movie
 {
     private int $id;
@@ -158,4 +161,40 @@ class Movie
     {
         $this->title = $title;
     }
+
+    /**
+     * Retourne l'objet Artist correspondant à l'ID donné.
+     *
+     * @param int $id
+     * @return Movie
+     */
+    public static function findById(int $id): Movie
+    {
+        MyPDO::setConfigurationFromIniFile();
+
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+        SELECT *
+        FROM movie
+        WHERE id = ?
+        SQL
+        );
+
+        $stmt->execute([$id]);
+
+        $movieData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $movie = new Movie();
+        $movie->id = $movieData['id'];
+        $movie->originalLanguage = $movieData['originalLanguage'];
+        $movie->originalTitle = $movieData['originalTitle'];
+        $movie->overview = $movieData['overview'];
+        $movie->releaseDate = $movieData['releaseDate'];
+        $movie->runtime = $movieData['runtime'];
+        $movie->posterId = $movieData['posterId'];
+        $movie->tagline = $movieData['tagline'];
+        $movie->title = $movieData['title'];
+        return $movie;
+    }
+
 }
