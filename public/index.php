@@ -12,9 +12,9 @@ $html->appendContent("<header><h1>Films</h1></header><div class='content'><ul cl
 $Movies = MovieCollection::findAll();
 $Images = ImageCollection::findAll();
 
-foreach ($Movies as $i => $movie) {
+foreach ($Movies as $movie) {
     $html->appendContent("<li><div class='txt'>{$movie->getTitle()}</div>");
-    foreach ($Images as $j => $image) {
+    foreach ($Images as $image) {
         if ($movie->getPosterId() == $image->getId()) {
             $html->appendContent("<img src='data:image/jpeg;base64," . base64_encode($image->getJpeg()) . "' alt='Image'></li>");
         }
