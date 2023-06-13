@@ -23,7 +23,7 @@ class MovieCollection
             <<<'SQL'
     SELECT id, posterId, title, releaseDate, tagline, overview
     FROM movie
-    ORDER by id 
+    ORDER by title 
 SQL
         );
         $stmt->execute();
