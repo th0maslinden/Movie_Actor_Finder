@@ -15,7 +15,7 @@ class MovieCollection
      * @return Movie[] liste film
      */
 
-    public static function findAll():array
+    public static function findAll(): array
     {
         MyPDO::setConfigurationFromIniFile();
 
@@ -25,7 +25,6 @@ class MovieCollection
     FROM movie
     ORDER by id 
 SQL
-
         );
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_CLASS, Movie::class);

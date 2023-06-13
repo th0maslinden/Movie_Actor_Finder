@@ -9,7 +9,7 @@ $wp=new WebPage("test");
 
 $Movies = MovieCollection::findAll();
 
-foreach ($Movies as $index => $movie){
+foreach ($Movies as $index => $movie) {
     $wp->appendContent("<li>{$movie->getTitle()}</li>");
 }
 
