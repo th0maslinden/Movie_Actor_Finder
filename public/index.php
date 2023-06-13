@@ -2,17 +2,23 @@
 
 declare(strict_types=1);
 
+use Entity\Collection\ImageCollection;
 use Entity\Collection\MovieCollection;
 use Html\AppWebPage;
-use Html\WebPage;
 
-$wp = new AppWebPage("test");
+$html = new AppWebPage("Films");
+$html->appendContent("<header><h1>Films</h1></header><div class='content'><ul class=\"list\">");
 
 $Movies = MovieCollection::findAll();
+$Images = ImageCollection::findAll();
 
-foreach ($Movies as $index => $movie) {
-    $wp->appendContent("<li>{$movie->getTitle()}</li>");
+foreach ($Movies as $i => $movie) {
+    $html->appendContent("<li><div class='txt'>{$movie->getTitle()}</div>");
+    foreach ($Images as $j => $image) {
+        if ($movie->getPosterId() == $image->getId()) {
+            $html->appendContent("<img src='data:image/jpeg;base64," . base64_encode($image->getJpeg()) . "' alt='Image'></li>");
+        }
+    }
 }
-
-echo $wp->toHTML();
-
+$html->appendContent("</ul></div><footer>Dernière modification : 13/06/2023 - 15:18</footer>");
+echo $html->toHTML();
