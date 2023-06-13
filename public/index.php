@@ -13,12 +13,12 @@ $Movies = MovieCollection::findAll();
 $Images = ImageCollection::findAll();
 
 foreach ($Movies as $movie) {
-    $html->appendContent("<li><div class='txt'>{$movie->getTitle()}</div>");
+    $html->appendContent("<a href=\"test.php?MovieId={$movie->getId()}\"><li><div class='txt'>{$movie->getTitle()}</div>");
     foreach ($Images as $image) {
         if ($movie->getPosterId() == $image->getId()) {
             $html->appendContent("<img src='data:image/jpeg;base64," . base64_encode($image->getJpeg()) . "' alt='Image'></li>");
         }
     }
 }
-$html->appendContent("</ul></div><footer>Dernière modification : 13/06/2023 - 15:18</footer>");
+$html->appendContent("</a></ul></div><footer>Dernière modification : 13/06/2023 - 15:18</footer>");
 echo $html->toHTML();
