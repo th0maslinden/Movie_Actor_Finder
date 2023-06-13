@@ -3,9 +3,10 @@
 declare(strict_types=1);
 
 use Entity\Collection\MovieCollection;
+use Html\AppWebPage;
 use Html\WebPage;
 
-$wp=new WebPage("test");
+$wp = new AppWebPage("test");
 
 $Movies = MovieCollection::findAll();
 
@@ -14,3 +15,4 @@ foreach ($Movies as $index => $movie) {
 }
 
 echo $wp->toHTML();
+
