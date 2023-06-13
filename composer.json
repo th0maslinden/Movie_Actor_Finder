@@ -27,5 +27,8 @@
         "start:windows": "bin/run-server.bat",
         "test-start:linux": "bin/test-run-server.sh",
         "test-start:windows": "bin/test-run-server.bat"
-        }
+        },
+        "config": {
+            "process-timeout": 0
+         }
     }
