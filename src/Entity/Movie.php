@@ -2,8 +2,6 @@
 
 namespace Entity;
 
-use Cassandra\Date;
-
 class Movie
 {
     private int $id;
@@ -11,7 +9,7 @@ class Movie
     private string $originalLanguage;
     private string $originalTitle;
     private string $overview;
-    private date $releaseDate;
+    private string $releaseDate;
     private int $runtime;
     private string $tagline;
     private string $title;
@@ -98,17 +96,17 @@ class Movie
     }
 
     /**
-     * @return Date
+     * @return string
      */
-    public function getReleaseDate(): Date
+    public function getReleaseDate(): string
     {
         return $this->releaseDate;
     }
 
     /**
-     * @param Date $releaseDate
+     * @param string $releaseDate
      */
-    public function setReleaseDate(Date $releaseDate): void
+    public function setReleaseDate(string $releaseDate): void
     {
         $this->releaseDate = $releaseDate;
     }
