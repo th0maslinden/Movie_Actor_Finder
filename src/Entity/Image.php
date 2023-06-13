@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+use PDO;
+
 class Image
 {
     private int $id ;
@@ -40,4 +43,31 @@ class Image
     {
         $this->jpeg = $jpeg;
     }
+    /**
+
+    Retourne l'objet Image correspondant à l'ID donné.*
+    @param int $id
+    @return Image*/
+    public static function findById(int $id): Image
+    {
+        MyPDO::setConfigurationFromIniFile();
+
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+        SELECT *
+        FROM image
+        WHERE id = ?
+        SQL
+        );
+
+        $stmt->execute([$id]);
+
+        $ImageData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $image = new Image();
+        $image->id = $ImageData['id'];
+        $image->jpeg = $ImageData['jpeg'];
+        return $image;
+    }
+
 }
