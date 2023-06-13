@@ -43,11 +43,12 @@ class Image
     {
         $this->jpeg = $jpeg;
     }
-    /**
 
-    Retourne l'objet Image correspondant à l'ID donné.*
-    @param int $id
-    @return Image*/
+    /**
+    * Retourne l'objet Image correspondant à l'ID donné.*
+    * @param int $id
+    * @return Image
+     */
     public static function findById(int $id): Image
     {
         MyPDO::setConfigurationFromIniFile();
