@@ -194,6 +194,7 @@ class Movie
         $movie->posterId = $movieData['posterId'];
         $movie->tagline = $movieData['tagline'];
         $movie->title = $movieData['title'];
+
         return $movie;
     }
 
