@@ -70,7 +70,7 @@ HTML);
             <a href="DescriptionPeople.php?PeopleId={$people->getId()}">
                 <li class="People">
 HTML);
-            $html->appendContent("<img src='data:image/jpeg;base64," . base64_encode(Image::findById($people->getAvatarId())->getJpeg()) . "' alt='Image'>");
+            $html->appendContent("<img src=\"imgPeople.php?cover={$people->getAvatarId()}\">");
             $html->appendContent(<<<HTML
                     <div class="roleName"
                         <div class="Pname">
