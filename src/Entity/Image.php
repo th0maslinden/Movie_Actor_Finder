@@ -51,7 +51,6 @@ class Image
      */
     public static function findById(int $id): Image
     {
-        MyPDO::setConfigurationFromIniFile();
 
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'

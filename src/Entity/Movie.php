@@ -170,8 +170,6 @@ class Movie
      */
     public static function findById(int $id): Movie
     {
-        MyPDO::setConfigurationFromIniFile();
-
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
         SELECT *

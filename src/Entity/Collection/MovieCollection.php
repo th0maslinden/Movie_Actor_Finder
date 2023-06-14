@@ -17,11 +17,9 @@ class MovieCollection
 
     public static function findAll(): array
     {
-        MyPDO::setConfigurationFromIniFile();
-
         $stmt = myPDO::getInstance()->prepare(
             <<<'SQL'
-    SELECT id, posterId, title, releaseDate, tagline, overview
+    SELECT *
     FROM movie
     ORDER by title 
 SQL
