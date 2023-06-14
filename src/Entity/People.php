@@ -37,22 +37,6 @@ class People
     /**
      * @return int
      */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return int
-     */
     public function getAvatarId(): int
     {
         return $this->avatarId;
@@ -144,29 +128,6 @@ class People
     public function setPlaceOfBirth(string $placeOfBirth): void
     {
         $this->placeOfBirth = $placeOfBirth;
-    }
-    /**
-     * Retourne l'objet People correspondant à l'ID du Movie donné.
-     *
-     * @param int $id
-     * @return People[]
-     */
-    public static function findByMovieId(int $movieId): array
-    {
-        $stmt = MyPDO::getInstance()->prepare(
-            <<<'SQL'
-SELECT p.*, c.role
-FROM cast c
-JOIN people p ON p.id = c.peopleId
-WHERE movieId = ?
-SQL
-        );
-
-
-        $stmt->execute([$movieId]);
-
-
-        return $stmt->fetchAll(PDO::FETCH_CLASS,People::class);
     }
 
     /**
