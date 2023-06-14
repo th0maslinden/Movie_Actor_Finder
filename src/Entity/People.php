@@ -37,7 +37,7 @@ class People
     /**
      * @return int
      */
-    public function getAvatarId(): int
+    public function getAvatarId(): ?int
     {
         return $this->avatarId;
     }
@@ -45,7 +45,7 @@ class People
     /**
      * @param int $avatarid
      */
-    public function setAvatarId(int $avatarId): void
+    public function setAvatarId(?int $avatarId = null): void
     {
         $this->avatarId = $avatarId;
     }
@@ -53,7 +53,7 @@ class People
     /**
      * @return string
      */
-    public function getBirthday(): string
+    public function getBirthday(): ?string
     {
         return $this->birthday;
     }
@@ -61,7 +61,7 @@ class People
     /**
      * @param string $birthday
      */
-    public function setBirthday(string $birthday): void
+    public function setBirthdya(?string $birthday = null): void
     {
         $this->birthday = $birthday;
     }
@@ -69,7 +69,7 @@ class People
     /**
      * @return string
      */
-    public function getDeathday(): string
+    public function getDeathday(): ?string
     {
         return $this->deathday;
     }
@@ -77,7 +77,7 @@ class People
     /**
      * @param string $deathday
      */
-    public function setDeathday(string $deathday): void
+    public function setDeathday(?string $deathday = null): void
     {
         $this->deathday = $deathday;
     }
