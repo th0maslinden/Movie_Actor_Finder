@@ -65,13 +65,13 @@ foreach ($Movies as $movie) {
     $html->appendContent(
         <<<HTML
             <a href="DescriptionMovie.php?MovieId={$movie->getId()}">
-                <li class="Movie">
+                <li>
 HTML
     );
     $html->appendContent("<img src=\"imgFilm.php?cover={$movie->getPosterId()}\">");
     $html->appendContent(
         <<<HTML
-                    <div class="secondRight"
+                    <div class="secondRight">
                         <div class="titleDate">
                             <div class="titleM">
                                 {$html->escapeString("{$movie->getTitle()}")}
@@ -79,6 +79,7 @@ HTML
                             <div class="dateM">
                                 {$html->escapeString("{$movie->getReleaseDate()}")}
                             </div>
+                        </div>
                         <div class="Prole">
 HTML
     );
@@ -97,5 +98,5 @@ HTML
 }
 
 
-$html->appendContent("<footer>Dernière modification :</footer>");
+$html->appendContent("</ul><footer>Dernière modification :</footer>");
 echo $html->toHTML();

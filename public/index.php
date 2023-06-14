@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Entity\Collection\ImageCollection;
 use Entity\Collection\MovieCollection;
-use Entity\Image;
 use Html\AppWebPage;
 
 $html = new AppWebPage("Films");
