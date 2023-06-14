@@ -167,4 +167,38 @@ class People
 
         return $stmt->fetchAll(PDO::FETCH_CLASS, People::class);
     }
+
+    /**
+     * Retourne l'objet People correspondant à l'ID du Movie donné.
+     *
+     * @param int $id
+     * @return People
+     */
+    public static function findById(int $id): People
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+        SELECT *
+        FROM people
+        WHERE id = ?
+        SQL
+        );
+
+        $stmt->execute([$id]);
+
+        $peopleData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $people = new People();
+        $people->id = $peopleData['id'];
+        $people->avatarId = $peopleData['avatarId'];
+        $people->birthday = $peopleData['birthday'];
+        $people->deathday = $peopleData['deathday'];
+        $people->name = $peopleData['name'];
+        $people->biography = $peopleData['biography'];
+        $people->placeOfBirth = $peopleData['placeOfBirth'];
+        $people->role = $peopleData['role'];
+
+        return $people;
+    }
+
 }
