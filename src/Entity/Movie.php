@@ -196,4 +196,26 @@ class Movie
         return $movie;
     }
 
+    /**
+     * Retourne l'objet Movie correspondant à l'ID du People donné.
+     *
+     * @param int $peopleId
+     * @return array
+     */
+    public static function findByPeopleId(int $peopleId): array
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+        SELECT m.*, c.role
+        FROM cast c
+        JOIN movie m ON m.id = c.movieId
+        WHERE peopleId = ?
+        SQL
+        );
+
+        $stmt->execute([$peopleId]);
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS, movie::class);
+    }
+
 }
