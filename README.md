@@ -1,6 +1,7 @@
 # Développement d’une application
 
-## DEHAY Roman dehay0030
+## DEHAY Roman deha0030
+
 ## LINDEN Thomas lind0013
 
 ## Configuration de la base de données
@@ -10,6 +11,7 @@ automatiquement avec le dsn user et mot de passe.
 /!\ /!\ /!\ /!\ /!\ **et il est OBLIGATOIRE pour faire fonctionner la BD** /!\ /!\ /!\ /!\ /!\
 
 ## script
+### chargement des classes
 
 ### chargement des classes
 
@@ -17,6 +19,7 @@ automatiquement avec le dsn user et mot de passe.
 
 ### start
 
+### start
 * (linux) entrer la commande "composer  start:linux"
 
 * (windows) entrer la commande "composer  start:windows"
