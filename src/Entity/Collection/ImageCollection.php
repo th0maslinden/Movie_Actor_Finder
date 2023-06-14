@@ -15,7 +15,6 @@ class ImageCollection
 
     public static function findAll(): array
     {
-        MyPDO::setConfigurationFromIniFile();
 
         $stmt = myPDO::getInstance()->prepare(
             <<<'SQL'

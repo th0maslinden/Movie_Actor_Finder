@@ -15,8 +15,6 @@ class PeopleCollection
 
     public static function findAll(): array
     {
-        MyPDO::setConfigurationFromIniFile();
-
         $stmt = myPDO::getInstance()->prepare(
             <<<'SQL'
     SELECT id, avatarId, birthday, deathday, name, biography, placeOfBirth
