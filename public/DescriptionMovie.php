@@ -33,8 +33,8 @@ if ($movieId < 0 || $movieId > 1000000) {
 
 MyPDO::setConfigurationFromIniFile();
 $Movie = Movie::findById(intval($movieId));
-$html->appendContent("<header><h1>{$html->escapeString($Movie->getTitle())}</h1></header><div class=\"content\"><div class=\"firstContent\">");
-
+$html->appendContent("<header><button class=\"back-button\" onclick=\"goBack()\">Retour</button><h1>{$html->escapeString($Movie->getTitle())}</h1></header><div class=\"content\"><div class=\"firstContent\">");
+$html->appendJs("function goBack() {window.history.back();}");
 $Movies = MovieCollection::findAll();
 foreach ($Movies as $movie) {
     if ($movie->getId() == $movieId) {

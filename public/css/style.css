@@ -7,6 +7,31 @@ body {
     background-color: #DAF7A6;
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    background-color: #FFC300;
+    margin-bottom: 2%;
+}
+
+h1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+button {
+    margin-left: 2%;
+    border-radius: 30px ;
+    height:50% ;
+    width: 8%;
+    border:none ;
+    background-color: #FF5733;
+    color: white;
+}
+
 a{
     flex-basis: calc(28%);
     text-decoration: none;
@@ -30,14 +55,6 @@ li {
 
 .txt{
     padding: 0 15% ;
-}
-
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10%;
-    background-color: #FFC300;
 }
 
 .content {

@@ -7,8 +7,8 @@ use Entity\Collection\MovieCollection;
 use Html\AppWebPage;
 
 $html = new AppWebPage("Films");
-$html->appendContent("<header><h1>Films</h1></header><div class='content'><ul class=\"list\">");
-
+$html->appendContent("<header><button class=\"back-button\" onclick=\"goBack()\">Retour</button><h1>Films</h1></header><div class='content'><ul class=\"list\">");
+$html->appendJs("function goBack() {window.history.back();}");
 $Movies = MovieCollection::findAll();
 $Images = ImageCollection::findAll();
 
