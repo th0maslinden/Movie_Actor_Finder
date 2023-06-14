@@ -4,14 +4,35 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+use PDO;
+
 class People
 {
+    private int $id;
     private ?int $avatarId;
     private ?string $birthday;
     private ?string $deathday;
     private string $name;
     private string $biography;
     private string $placeOfBirth;
+    private ?string $role;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return int
@@ -109,4 +130,41 @@ class People
         $this->placeOfBirth = $placeOfBirth;
     }
 
+    /**
+     * @return string
+     */
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
+    }
+
+    /**
+     * Retourne l'objet People correspondant à l'ID du Movie donné.
+     *
+     * @param int $id
+     * @return People[]
+     */
+    public static function findByMovieId(int $movieId): array
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+        SELECT p.*, c.role
+        FROM cast c
+        JOIN people p ON p.id = c.peopleId
+        WHERE movieId = ?
+        SQL
+        );
+
+        $stmt->execute([$movieId]);
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS, People::class);
+    }
 }

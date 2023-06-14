@@ -18,4 +18,3 @@ foreach ($Movies as $index => $movie) {
 }
 $html->appendContent("</a></ul></div><footer>Dernière modification : 13/06/2023 - 15:18</footer>");
 echo $html->toHTML();
-

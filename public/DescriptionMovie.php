@@ -62,10 +62,30 @@ foreach ($Movies as $movie) {
                 </div>
             </div>
         </div>
+        <ul class=\"list\">
 HTML);
+        $Peoples = People::findByMovieId(intval($movieId));
+        foreach ($Peoples as $people) {
+            $html->appendContent(<<<HTML
+            <a href="DescriptionPeople.php?PeopleId={$people->getId()}">
+                <li class="People">
+HTML);
+            $html->appendContent("<img src='data:image/jpeg;base64," . base64_encode(Image::findById($people->getAvatarId())->getJpeg()) . "' alt='Image'>");
+            $html->appendContent(<<<HTML
+                    <div class="roleName"
+                        <div class="Pname">
+                            {$people->getName()}
+                        <div class="Prole">
+                            {$people->getRole()}
+                        </div>
+                    </div>
+                </li>
+            </a>
+    HTML);
+        }
     }
 }
 
 
-$html->appendContent("</div><footer>Dernière modification :</footer>");
+$html->appendContent("</ul></div><footer>Dernière modification :</footer>");
 echo $html->toHTML();
