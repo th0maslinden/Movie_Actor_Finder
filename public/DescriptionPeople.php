@@ -26,7 +26,8 @@ if ($peopleId < 0 || $peopleId > 5000000) {
 }
 
 $people = People::findById($peopleId);
-$html->appendContent("<header><h1>{$html->escapeString($people->getName())}</h1></header><div class=\"content\"><div class=\"firstContent\">");
+$html->appendContent("<header><button class=\"back-button\" onclick=\"goBack()\">Retour</button><h1>{$html->escapeString($people->getName())}</h1></header><div class=\"content\"><div class=\"firstContent\">");
+$html->appendJs("function goBack() {window.history.back();}");
 $html->appendContent("<img src=\"imgPeople.php?cover={$people->getAvatarId()}\">");
 $html->appendContent(<<<HTML
             <div class="right">
