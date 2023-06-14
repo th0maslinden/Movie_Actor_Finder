@@ -5,8 +5,10 @@ declare(strict_types=1);
 use Database\MyPdo;
 use Entity\Collection\ImageCollection;
 use Entity\Collection\MovieCollection;
+use Entity\Collection\PeopleCollection;
 use Entity\Image;
 use Entity\Movie;
+use Entity\People;
 use Html\WebPage;
 
 $html = new WebPage();
@@ -34,7 +36,7 @@ $Movie = Movie::findById(intval($movieId));
 $html->appendContent("<header><h1>{$html->escapeString($Movie->getTitle())}</h1></header><div class=\"content\"><div class=\"firstContent\">");
 
 $Movies = MovieCollection::findAll();
-foreach ($Movies as $index => $movie) {
+foreach ($Movies as $movie) {
     if ($movie->getId() == $movieId) {
         $html->appendContent("<img src='data:image/jpeg;base64," . base64_encode(Image::findById($movie->getPosterId())->getJpeg()) . "' alt='Image'>");
         $html->appendContent(<<<HTML
@@ -42,7 +44,7 @@ foreach ($Movies as $index => $movie) {
                 <div class="firstLine">
                     <h4>
                         <div class="title">
-                            {$movie->getTitle()}
+                            {$html->escapeString("{$movie->getTitle()}")}
                         </div>
                     </h4>
                     <div class="date">
@@ -50,17 +52,16 @@ foreach ($Movies as $index => $movie) {
                     </div>
                 </div>
                 <div class="secondLine">
-                    titre Original
+                    {$html->escapeString("{$movie->getOriginalTitle()}")}
                 </div>
                 <div class="thirdLine">
-                    {$movie->getTagline()}
+                    {$html->escapeString("{$movie->getTagline()}")}
                 </div>
                 <div class="fourthlyLine">
-                    {$movie->getOverview()}
+                    {$html->escapeString("{$movie->getOverview()}")}
                 </div>
             </div>
         </div>
-    </div>
 HTML);
     }
 }

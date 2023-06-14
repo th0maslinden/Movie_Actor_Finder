@@ -28,7 +28,7 @@ header {
 
 .right {
     margin-left: 2%;
-    margin-right: 5%;
+    margin-right: 7%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,6 +36,7 @@ header {
 
 .right > *{
     padding: 2%;
+    margin: 2% 0;
     background-color: #B2D672;
     border-radius: 30px;
 }
@@ -45,17 +46,17 @@ header {
     justify-content: space-between;
 }
 
-.date{
-    width: 30%;
-}
-
 .secondLine {
     flex-direction: row-reverse;
 }
 
+.thirdLine {
+    font-style: italic;
+}
+
 img{
-    width: auto;
-    height: auto;
+    width: 20%;
+    height: 20%;
 }
 
 footer {
